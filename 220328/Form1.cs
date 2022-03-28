@@ -84,7 +84,7 @@ namespace _220328
             IPAddress[] ip = Dns.GetHostEntry(hostname).AddressList;
             foreach(IPAddress it in ip)
             {
-                if(it.AddressFamily == AddressFamily.InterNetwork)
+                if(it.AddressFamily == AddressFamily.InterNetwork && it.ToString() != "192.168.56.1")
                 {
                     return it.ToString();
                 }
