@@ -77,5 +77,24 @@ namespace _220328
             S.Send(B, B.Length, IP, Port);//發送資料到指定位置
             S.Close();///關閉UDP Client
         }
+
+        private string MyIP()
+        {
+            string hostname = Dns.GetHostName();
+            IPAddress[] ip = Dns.GetHostEntry(hostname).AddressList;
+            foreach(IPAddress it in ip)
+            {
+                if(it.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return it.ToString();
+                }
+            }
+            return "";
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Text = "我的IP：" + MyIP();
+        }
     }
 }
