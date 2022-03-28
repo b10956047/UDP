@@ -71,7 +71,7 @@ namespace _220328
         private void button2_Click(object sender, EventArgs e)
         {
             string IP = textBox_targetIP.Text;//設定發送目標IP
-            int Port = int.Parse(textBox_listenPort.Text);//設定發送目標Port
+            int Port = int.Parse(textBox_targetPort.Text);//設定發送目標Port
             byte[] B = Encoding.Default.GetBytes(textBox_sendMsg.Text);//字串翻譯成位元
             UdpClient S = new UdpClient();//建立UDP Client
             S.Send(B, B.Length, IP, Port);//發送資料到指定位置
