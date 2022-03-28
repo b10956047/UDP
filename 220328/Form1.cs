@@ -50,8 +50,8 @@ namespace _220328
         private void button1_Click(object sender, EventArgs e)
         {
             Control.CheckForIllegalCrossThreadCalls = false;//忽略跨執行續錯誤
-            Th = new Thread(Listen);//建立監聽執行續，目標副程式 -> Listen
-            Th.Start();//啟動監聽執行續
+            Th = new Thread(Listen);//建立監聽執行緒，目標副程式 -> Listen
+            Th.Start();//啟動監聽執行緒
             button_startListen.Enabled = false;//使button失效(不能重複開啟監聽)
         }
 
@@ -59,7 +59,7 @@ namespace _220328
         {
             try
             {
-                Th.Abort();//關閉監聽執行續
+                Th.Abort();//關閉監聽執行緒
                 U.Close();//關閉監聽器
             }
             catch
